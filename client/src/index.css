@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+
+/* Aether Grid — design tokens from Stitch */
+:root {
+  /* surfaces */
+  --bg-primary: #0a0e19;
+  --bg-secondary: #0f131f;
+  --bg-tertiary: #141927;
+  --bg-card: rgba(20, 25, 39, 0.75);
+  --bg-card-hover: rgba(26, 31, 46, 0.9);
+  --bg-glass: rgba(32, 37, 53, 0.5);
+  --bg-glass-border: rgba(68, 72, 85, 0.15);
+  --bg-elevated: #1a1f2e;
+  --bg-highest: #202535;
+
+  /* text */
+  --text-primary: #e8eafb;
+  --text-secondary: #a7aaba;
+  --text-tertiary: #717583;
+  --text-accent: #c899ff;
+
+  /* accents — the neon trio */
+  --accent-primary: #c899ff;
+  --accent-primary-dim: #9c3dff;
+  --accent-primary-container: #be86ff;
+  --accent-secondary: #0bfbff;
+  --accent-secondary-dim: #00ecef;
+  --accent-secondary-container: #00696b;
+  --accent-tertiary: #ff6b9b;
+  --accent-tertiary-dim: #e30071;
+  --accent-success: #0bfbff;
+  --accent-warning: #fdcb6e;
+  --accent-danger: #ff6e84;
+  --accent-info: #0bfbff;
+
+  /* gradients */
+  --gradient-primary: linear-gradient(135deg, #9c3dff 0%, #c899ff 100%);
+  --gradient-accent: linear-gradient(135deg, #0bfbff 0%, #9c3dff 100%);
+  --gradient-warm: linear-gradient(135deg, #ff6b9b 0%, #fdcb6e 100%);
+  --gradient-bg: linear-gradient(180deg, #0a0e19 0%, #0f131f 50%, #141927 100%);
+  --gradient-logo: linear-gradient(135deg, #0bfbff, #c899ff, #ff6b9b);
+
+  /* spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* shadows — neon-tinted, not black */
+  --shadow-sm: 0 2px 8px rgba(10, 14, 25, 0.5);
+  --shadow-md: 0 4px 16px rgba(10, 14, 25, 0.6);
+  --shadow-lg: 0 8px 32px rgba(10, 14, 25, 0.7);
+  --shadow-glow: 0 0 20px rgba(156, 61, 255, 0.15);
+  --shadow-glow-sm: 0 0 10px rgba(156, 61, 255, 0.1);
+  --shadow-glow-cyan: 0 0 20px rgba(11, 251, 255, 0.12);
+
+  /* typography — Space Grotesk headlines + Manrope body */
+  --font-primary: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-mono: 'Space Grotesk', 'JetBrains Mono', monospace;
+
+  --text-xs: 0.7rem;
+  --text-sm: 0.8rem;
+  --text-base: 0.9rem;
+  --text-lg: 1.1rem;
+  --text-xl: 1.3rem;
+  --text-2xl: 1.6rem;
+  --text-3xl: 2.2rem;
+
+  /* transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* z-index */
+  --z-grid: 1;
+  --z-ui: 10;
+  --z-overlay: 100;
+  --z-modal: 1000;
+}
+
+/* reset */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--bg-highest); border-radius: var(--radius-full); }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-primary-dim); }
+
+::selection {
+  background: rgba(156, 61, 255, 0.4);
+  color: white;
+}
+
+/* animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 0.6; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes scoreUp {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); color: var(--accent-secondary); }
+  100% { transform: scale(1); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(156, 61, 255, 0.15); }
+  50% { box-shadow: 0 0 20px rgba(156, 61, 255, 0.3); }
+}
+
+@keyframes neonPulse {
+  0%, 100% { text-shadow: 0 0 4px rgba(11, 251, 255, 0.3); }
+  50% { text-shadow: 0 0 12px rgba(11, 251, 255, 0.5); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

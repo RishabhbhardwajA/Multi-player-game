@@ -1,0 +1,55 @@
+/* minimap */
+
+.minimap {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  animation: slideInRight 0.5s ease;
+  transition: border-color var(--transition-base);
+}
+
+.minimap:hover {
+  border-color: rgba(0, 206, 201, 0.15);
+}
+
+.minimap-title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: var(--space-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.minimap-canvas-wrapper {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.minimap-canvas {
+  display: block;
+  width: 100%;
+  image-rendering: pixelated;
+  cursor: pointer;
+  transition: filter var(--transition-base);
+}
+
+.minimap:hover .minimap-canvas {
+  filter: brightness(1.1);
+}
+
+.minimap-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-sm);
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+}
