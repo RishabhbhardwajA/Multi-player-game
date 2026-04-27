@@ -69,20 +69,29 @@
   z-index: var(--z-ui);
 }
 
-/* Cooldown overlay */
+/* Cooldown popup */
 .cooldown-overlay {
-  position: absolute;
-  bottom: var(--space-md);
+  position: fixed;
+  top: 40px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(225, 112, 85, 0.2);
-  border: 1px solid rgba(225, 112, 85, 0.4);
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--accent-danger);
   border-radius: var(--radius-full);
-  padding: var(--space-xs) var(--space-lg);
-  font-size: var(--text-sm);
+  padding: var(--space-sm) var(--space-xl);
+  font-size: var(--text-md);
+  font-weight: 600;
   color: var(--accent-danger);
-  z-index: var(--z-ui);
-  animation: fadeIn 0.2s ease;
+  z-index: 9999;
+  pointer-events: none;
+  box-shadow: 0 10px 30px rgba(225, 112, 85, 0.2);
+  animation: slideDownPopup 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes slideDownPopup {
+  0% { transform: translate(-50%, -20px); opacity: 0; }
+  100% { transform: translate(-50%, 0); opacity: 1; }
 }
 
 /* Connection lost overlay */
